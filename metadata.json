@@ -1,0 +1,6 @@
+{
+  "name": "TrustTrace - Digital Evidence Verification Platform",
+  "description": "AI-assisted digital evidence verification platform analyzing manipulated screenshots, fake payment proofs, forged documents, and edited conversations with explainable tamper detection and cryptographic chain-of-custody.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        try {
+          var originalFetch = window.fetch;
+          var activeFetch = originalFetch ? originalFetch.bind(window) : undefined;
+          Object.defineProperty(window, 'fetch', {
+            get: function () {
+              return activeFetch;
+            },
+            set: function (fn) {
+              activeFetch = fn;
+            },
+            configurable: true,
+            enumerable: true,
+          });
+        } catch (e1) {
+          try {
+            var proto = Object.getPrototypeOf(window);
+            var protoOriginalFetch = window.fetch;
+            var protoActiveFetch = protoOriginalFetch ? protoOriginalFetch.bind(window) : undefined;
+            Object.defineProperty(proto, 'fetch', {
+              get: function () {
+                return protoActiveFetch;
+              },
+              set: function (fn) {
+                protoActiveFetch = fn;
+              },
+              configurable: true,
+              enumerable: true,
+            });
+          } catch (e2) {}
+        }
+      })();
+    </script>
+    <title>TrustTrace - Digital Evidence Verification Platform</title>
+    <meta name="description" content="AI-assisted digital evidence verification platform analyzing manipulated screenshots, fake payment proofs, forged documents, and edited conversations with explainable tamper detection and cryptographic chain-of-custody." />
+    <meta property="og:title" content="TrustTrace - Digital Evidence Verification Platform" />
+    <meta property="og:description" content="AI-assisted digital evidence verification platform analyzing manipulated screenshots, fake payment proofs, forged documents, and edited conversations with explainable tamper detection and cryptographic chain-of-custody." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
